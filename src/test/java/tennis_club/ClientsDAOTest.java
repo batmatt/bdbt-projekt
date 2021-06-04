@@ -28,8 +28,7 @@ class ClientsDAOTest {
 	@Test
 	void testList() {
 		List<Client> clients = dao.list();
-		System.out.print(clients.size());
-		assertTrue(clients.isEmpty());
+		assertTrue(!clients.isEmpty());
 	}
 
 	@Test

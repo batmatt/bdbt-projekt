@@ -1,47 +1,84 @@
 package tennis_club;
 
 public class Client {
-
-	private int clientId;
-	private String clientName;
-	private String clientSurname;
+	
+	private int idKlienta;
+	private String imie;
+	private String nazwisko;
+	private String nrTelefonu;
+	private String statusKlienta;
+	private String nrSzafki;
+	private int idKlubu;
 	
 	public Client() {
 		
 	}
-	
-	public Client (int clientId, String clientName, String clientSurname) {
-		this.clientId = clientId;
-		this.clientName = clientName;
-		this.clientSurname = clientSurname;
-	}
-	
-	public int getClientId() {
-		return clientId;
+
+	public Client(int idKlienta, String imie, String nazwisko, String nrTelefonu, String statusKlienta, String nrSzafki,
+			int idKlubu) {
+		super();
+		this.idKlienta = idKlienta;
+		this.imie = imie;
+		this.nazwisko = nazwisko;
+		this.nrTelefonu = nrTelefonu;
+		this.statusKlienta = statusKlienta;
+		this.nrSzafki = nrSzafki;
+		this.idKlubu = idKlubu;
 	}
 
-	public void setClientId(int clientId) {
-		this.clientId = clientId;
+	public int getIdKlienta() {
+		return idKlienta;
 	}
 
-	public String getClientName() {
-		return clientName;
+	public void setIdKlienta(int idKlienta) {
+		this.idKlienta = idKlienta;
 	}
 
-	public void setClientName(String clientName) {
-		this.clientName = clientName;
+	public String getImie() {
+		return imie;
 	}
 
-	public String getClientSurname() {
-		return clientSurname;
+	public void setImie(String imie) {
+		this.imie = imie;
 	}
 
-	public void setClientSurname(String clientSurname) {
-		this.clientSurname = clientSurname;
+	public String getNazwisko() {
+		return nazwisko;
 	}
-	
-	@Override
-	public String toString() {
-		return "Client [clientId=" + clientId + ", clientName=" + clientName + ", clientSurname=" + clientSurname + "]";
-	}	
+
+	public void setNazwisko(String nazwisko) {
+		this.nazwisko = nazwisko;
+	}
+
+	public String getNrTelefonu() {
+		return nrTelefonu;
+	}
+
+	public void setNrTelefonu(String nrTelefonu) {
+		this.nrTelefonu = nrTelefonu;
+	}
+
+	public String getStatusKlienta() {
+		return statusKlienta;
+	}
+
+	public void setStatusKlienta(String statusKlienta) {
+		this.statusKlienta = statusKlienta;
+	}
+
+	public String getNrSzafki() {
+		return nrSzafki;
+	}
+
+	public void setNrSzafki(String nrSzafki) {
+		this.nrSzafki = nrSzafki;
+	}
+
+	public int getIdKlubu() {
+		return idKlubu;
+	}
+
+	public void setIdKlubu(int idKlubu) {
+		this.idKlubu = idKlubu;
+	}
 }

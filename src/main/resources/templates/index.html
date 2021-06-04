@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tennis Club Manager Application</title>
+</head>
+
+<body>
+	<div align="center">
+		<!--  Page header -->
+		<h1>Clients Records</h1>
+		
+		<!-- Adding new record -->
+		<a href = "/new">Dodaj nowego klienta</a>
+
+		<!-- Table with records -->
+		<table border="1" cellpadding="10">
+
+			<!-- Table header -->
+			<thead>
+				<tr>
+					<th>ID KLIENTA</th>
+					<th>IMIE</th>
+					<th>NAZWISKO</th>
+					<th>NR TELEFONU</th>
+					<th>STATUS KLIENTA</th>
+					<th>NR SZAFKI</th>
+				</tr>
+			</thead>
+
+			<!-- Table body -->
+			<tbody>
+				<tr th:each="client : ${clients}">
+					<td th:text="${client.idKlienta}">ID KLIENTA</td>
+					<td th:text="${client.imie}">IMIE</td>
+					<td th:text="${client.nazwisko}">NAZWISKO</td>
+					<td th:text="${client.nrTelefonu}">NR TELEFONU</td>
+					<td th:text="${client.statusKlienta}">STATUS KLIENTA</td>
+					<td th:text="${client.nrSzafki}">NR SZAFKI</td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+
+</body>
+</html>

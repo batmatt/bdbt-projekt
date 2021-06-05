@@ -33,7 +33,8 @@ class ClientsDAOTest {
 
 	@Test
 	void testSave() {
-		fail("Not yet implemented");
+		Client client = new Client(0, "Karol", "Karolak", "213742002", "aktywny", "4", 1);
+		dao.save(client);
 	}
 
 	@Test

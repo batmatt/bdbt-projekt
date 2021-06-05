@@ -21,5 +21,14 @@ public class AppController {
 		return "index";
 		 
 	}
+	
+	@RequestMapping("/new")
+	public String showNewForm(Model model) {
+		Client client = new Client();
+		model.addAttribute("client", client);
+		
+		return "new_form";
+		 
+	}
 
 }

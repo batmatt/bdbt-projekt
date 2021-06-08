@@ -48,6 +48,14 @@
 			<systemPath>C:/Users/szinus/eclipse-workspace/TennisClub/java-drivers/ojdbc10.jar</systemPath>
 		</dependency>
 
+		<!-- Lombok to easily use getters/setters -->
+		<dependency>
+			<groupId>org.projectlombok</groupId>
+			<artifactId>lombok</artifactId>
+			<version>1.18.20</version>
+			<scope>provided</scope>
+		</dependency>
+
 	</dependencies>
 
 	<!-- Spring Boot Maven - Plugin -->

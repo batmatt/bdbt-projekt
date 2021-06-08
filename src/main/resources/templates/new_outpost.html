@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Nowa Placówka</title>
+</head>
+
+<body>
+	<div align="center">
+		<!--  Page header -->
+		<h1>Dodaj Placówkę</h1>
+		<!-- End line/new line -->
+		<br />
+		<form action="#" th:action="@{/save}" th:object="${placowka}"
+			method="post">
+
+			<table border="1" cellpadding="10">
+				<tr>
+					<td>Nazwa placówki:</td>
+					<td><input type="text" th:fields="*{nazwaPlacowki}"></td>
+				</tr>
+
+				<tr>
+					<td>Numer telefonu:</td>
+					<td><input type="text" th:fields="*{nrTelefonu}"></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Dodaj</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Placowki</title>
+</head>
+
+<body>
+	<div align="center">
+		<!--  Page header -->
+		<h1>Placówki</h1>
+
+		<!-- Adding new record -->
+		<a href="/new">Dodaj nową placówkę</a>
+
+		<!-- Table with records -->
+		<table border="1" cellpadding="10">
+
+			<!-- Table header -->
+			<thead>
+				<tr>
+					<th>Id placówki</th>
+					<th>Nazwa placówki</th>
+					<th>Nr telefonu</th>
+					<th>Id adresu</th>
+				</tr>
+			</thead>
+
+			<!-- Table body -->
+			<tbody>
+				<tr th:each="placowka : ${placowki}">
+					<td th:text="${placowka.idPlacowki}">Id placówki</td>
+					<td th:text="${placowka.nazwaPlacowki}">Nazwa placówki</td>
+					<td th:text="${placowka.nrTelefonu}">Nr telefonu</td>
+					<td th:text="${placowka.idAdresu}">Id adresu</td>
+
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+</body>
+</html>

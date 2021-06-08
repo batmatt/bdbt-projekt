@@ -9,26 +9,26 @@ import org.springframework.web.bind.annotation.RequestMapping;
 
 @Controller
 public class AppController {
-	
+
 	@Autowired
-	private ClientsDAO clientsDAO;
-	
+	private PlacowkiDAO dao;
+
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
-		List<Client> clients = clientsDAO.list();
-		model.addAttribute("clients", clients);
-		
-		return "index";
-		 
+		List<Placowka> placowki = dao.list();
+		model.addAttribute("placowki", placowki);
+
+		return "index_outpost";
+
 	}
-	
+
 	@RequestMapping("/new")
 	public String showNewForm(Model model) {
-		Client client = new Client();
-		model.addAttribute("client", client);
-		
-		return "new_form";
-		 
+		Placowka placowka = new Placowka();
+		model.addAttribute("placowka", placowka);
+
+		return "new_outpost";
+
 	}
 
 }

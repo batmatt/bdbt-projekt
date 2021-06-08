@@ -2,30 +2,6 @@ package tennis_club;
 
 public class Client {
 	
-	private int idKlienta;
-	private String imie;
-	private String nazwisko;
-	private String nrTelefonu;
-	private String statusKlienta;
-	private String nrSzafki;
-	private int idKlubu;
-	
-	public Client() {
-		
-	}
-
-	public Client(int idKlienta, String imie, String nazwisko, String nrTelefonu, String statusKlienta, String nrSzafki,
-			int idKlubu) {
-		super();
-		this.idKlienta = idKlienta;
-		this.imie = imie;
-		this.nazwisko = nazwisko;
-		this.nrTelefonu = nrTelefonu;
-		this.statusKlienta = statusKlienta;
-		this.nrSzafki = nrSzafki;
-		this.idKlubu = idKlubu;
-	}
-
 	public int getIdKlienta() {
 		return idKlienta;
 	}
@@ -81,4 +57,30 @@ public class Client {
 	public void setIdKlubu(int idKlubu) {
 		this.idKlubu = idKlubu;
 	}
+
+	private int idKlienta;
+	private String imie;
+	private String nazwisko;
+	private String nrTelefonu;
+	private String statusKlienta;
+	private String nrSzafki;
+	private int idKlubu;
+	
+	public Client() {
+		
+	}
+
+	public Client(int idKlienta, String imie, String nazwisko, String nrTelefonu, String statusKlienta, String nrSzafki,
+			int idKlubu) {
+		super();
+		this.idKlienta = idKlienta;
+		this.imie = imie;
+		this.nazwisko = nazwisko;
+		this.nrTelefonu = nrTelefonu;
+		this.statusKlienta = statusKlienta;
+		this.nrSzafki = nrSzafki;
+		this.idKlubu = idKlubu;
+	}
+
+
 }

@@ -10,9 +10,9 @@
 	<div align="center">
 		<!--  Page header -->
 		<h1>Clients Records</h1>
-		
+
 		<!-- Adding new record -->
-		<a href = "/new">Dodaj nowego klienta</a>
+		<a href="/new">Dodaj nowego klienta</a>
 
 		<!-- Table with records -->
 		<table border="1" cellpadding="10">
@@ -38,6 +38,10 @@
 					<td th:text="${client.nrTelefonu}">NR TELEFONU</td>
 					<td th:text="${client.statusKlienta}">STATUS KLIENTA</td>
 					<td th:text="${client.nrSzafki}">NR SZAFKI</td>
+
+					<td><a th:href="@{'/edit/' + ${client.idKlienta}}">Edytuj</a>
+						&nbsp; &nbsp; &nbsp; &nbsp; <a
+						th:href="@{'/delete/' + ${client.idKlienta}}">Usuń</a></td>
 				</tr>
 			</tbody>
 

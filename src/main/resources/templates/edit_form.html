@@ -3,25 +3,28 @@
 	xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Nowy Klient</title>
+<title>Edytuj dane Klienta</title>
 </head>
 
 <body>
 	<div align="center">
 		<!--  Page header -->
-		<h1>Klienci</h1>
-
-		<!-- Adding new record -->
-		<a htef="/new">Dodaj Klienta</a>
+		<h1>Edytuj dane Klienta</h1>
 
 		<!-- End line/new line -->
 		<br />
 
-		<!-- Table with records -->
-		<form action="#" th:action="@{/save}" th:object="${client}"
+		<form action="#" th:action="@{/update}" th:object="${client}"
 			method="post">
 
+			<!-- Table with records -->
 			<table border="1" cellpadding="10">
+				<tr>
+					<td>Id klienta:</td>
+					<td><input type="text" th:field="*{idKlienta}"
+						readonly="readonly"></td>
+				</tr>
+
 				<tr>
 					<td>Imie:</td>
 					<td><input type="text" th:field="*{imie}"></td>
@@ -50,9 +53,14 @@
 
 					</select></td>
 				</tr>
+				
+				<tr>
+					<td>Id klubu:</td>
+					<td><input type="text" th:field="*{idKlubu}"></td>
+				</tr>
 
 				<tr>
-					<td colspan="2"><button type="submit">Dodaj</button></td>
+					<td colspan="2"><button type="submit">Zapisz</button></td>
 				</tr>
 			</table>
 		</form>

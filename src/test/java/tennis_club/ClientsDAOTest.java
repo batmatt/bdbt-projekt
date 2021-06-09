@@ -20,7 +20,7 @@ class ClientsDAOTest {
 		datasource.setUsername("mwinnick");
 		datasource.setPassword("mwinnick");
 		datasource.setDriverClassName("oracle.jdbc.OracleDriver");
-		
+
 		final JdbcTemplate template = new JdbcTemplate(datasource);
 		dao = new ClientsDAO(template);
 	}
@@ -33,23 +33,31 @@ class ClientsDAOTest {
 
 	@Test
 	void testSave() {
-		Client client = new Client(0, "Karol", "Karolak", "213742002", "aktywny", "4", 1);
+		Client client = new Client.Builder().withImie("Bart³omiej").withNazwisko("Koala").withNrTelefonu("485738222")
+				.withNrSzafki("482").withStatusKlienta("aktywny").withIdKlubu(1).build();
 		dao.save(client);
 	}
 
 	@Test
 	void testGet() {
-		fail("Not yet implemented");
+		int id = 2;
+		Client client = dao.get(id);
+		
+		assertNotNull(client);
 	}
 
 	@Test
 	void testUpdate() {
-		fail("Not yet implemented");
+		Client client = new Client.Builder().withImie("Bart³omiej").withNazwisko("Koala").withNrTelefonu("485738222")
+				.withNrSzafki("482").withStatusKlienta("zawieszony").withIdKlubu(1).build();
+		
+		dao.update(client);
 	}
 
 	@Test
 	void testDelete() {
-		fail("Not yet implemented");
+		int id = 15;
+		dao.delete(id);
 	}
 
 }

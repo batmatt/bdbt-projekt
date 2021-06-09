@@ -5,7 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
 public class ClubManager {
-	
+
 	public static void main(String[] args) {
 		SpringApplication.run(ClubManager.class, args);
 	}

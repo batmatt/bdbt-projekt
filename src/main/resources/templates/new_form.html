@@ -3,32 +3,52 @@
 	xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>New Client</title>
+<title>Nowy Klient</title>
 </head>
 
 <body>
 	<div align="center">
 		<!--  Page header -->
-		<h1>Dodaj Klienta</h1>
+		<h1>Klienci</h1>
+
+		<!-- Adding new record -->
+		<a htef="/new">Dodaj Klienta</a>
+
 		<!-- End line/new line -->
 		<br />
+
+		<!-- Table with records -->
 		<form action="#" th:action="@{/save}" th:object="${client}"
 			method="post">
 
 			<table border="1" cellpadding="10">
 				<tr>
 					<td>Imie:</td>
-					<td><input type="text" th:fields="*{imie}"></td>
+					<td><input type="text" th:field="*{imie}"></td>
 				</tr>
 
 				<tr>
 					<td>Nazwisko:</td>
-					<td><input type="text" th:fields="*{nazwisko}"></td>
+					<td><input type="text" th:field="*{nazwisko}"></td>
 				</tr>
 
 				<tr>
 					<td>Numer telefonu:</td>
-					<td><input type="text" th:fields="*{nrTelefonu}"></td>
+					<td><input type="text" th:field="*{nrTelefonu}"></td>
+				</tr>
+
+				<tr>
+					<td>Numer szafki:</td>
+					<td><input type="text" th:field="*{nrSzafki}"></td>
+				</tr>
+
+				<tr>
+					<td>Status klienta:</td>
+					<td><select th:field="*{statusKlienta}">
+							<option th:value="aktywny" th:text="aktywny"></option>
+							<option th:value="zawieszony" th:text="zawieszony"></option>
+
+					</select></td>
 				</tr>
 
 				<tr>

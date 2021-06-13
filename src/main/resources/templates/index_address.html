@@ -1,53 +1,64 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Tennis Club Manager Application</title>
+<link href="/css/address_style.css" type="text/css" rel="stylesheet" />
+<title>Adresy</title>
 </head>
-
 <body>
+	<nav role="navigation">
+		<div id="menuToggle">
+
+			<input type="checkbox" /> <span></span> <span></span> <span></span>
+
+			<ul id="menu">
+				<a href="/"><li>Strona główna</li></a>
+				<a href="/placowki/"><li>Placówki</li></a>
+				<a href="/korty/"><li>Korty</li></a>
+				<a href="/wylogowanie"><li>Wyloguj się</li></a>
+			</ul>
+		</div>
+	</nav>
 	<div align="center">
-		<!--  Page header -->
+		<!--  Page header  -->
 		<h1>Adresy</h1>
-
-		<!-- Adding new record -->
-		<a href="/new">Dodaj nowy adres</a>
-
-		<!-- Table with records -->
-		<table border="1" cellpadding="10">
-
+		<!-- Entry to the new page -->
+		<a sec:authorize="hasRole('ADMIN')" href="/adresy/new">Dodaj nowy
+			adres</a> <br /> <br />
+		<!-- Table -->
+		<table class="content-table">
 			<!-- Table header -->
 			<thead>
 				<tr>
-					<th>ID ADRESU</th>
-					<th>ULICA</th>
-					<th>NR DZIAŁKI</th>
-					<th>MIEJSCOWOŚĆ</th>
-					<th>KOD POCZTOWY</th>
-					<th>NR LOKALU</th>
+					<th>Id adresu</th>
+					<th>Ulica</th>
+					<th>Nr działki</th>
+					<th>Miejscowość</th>
+					<th>Kod pocztowy</th>
+					<th>Nr lokalu</th>
 				</tr>
 			</thead>
-
 			<!-- Table body -->
 			<tbody>
-				<tr th:each="adres : ${adresy}">
-					<td th:text="${adres.idAdresu}">ID ADRESU</td>
-					<td th:text="${adres.ulica}">ULICA</td>
-					<td th:text="${adres.nrDzialki}">NR DZIAŁKI</td>
-					<td th:text="${adres.miejscowosc}">MIEJSCOWOŚĆ</td>
-					<td th:text="${adres.kodPocztowy}">KOD POCZTOWY</td>
-					<td th:text="${adres.nrLokalu}">NR LOKALU</td>
+				<tr th:each="adres:${adresy}">
+					<td th:text="${adres.idAdresu}">Nr adresu</td>
+					<td th:text="${adres.ulica}">Ulica</td>
+					<td th:text="${adres.nrDzialki}">Nr działki</td>
+					<td th:text="${adres.miejscowosc}">Miejscowość</td>
+					<td th:text="${adres.kodPocztowy}">Kod pocztowy</td>
+					<td th:text="${adres.nrLokalu}">Nr Lokalu</td>
 
-					<td><a th:href="@{'/edit/' + ${adres.idAdresu}}">Edytuj</a>
-						&nbsp; &nbsp; &nbsp; &nbsp; <a
-						th:href="@{'/delete/' + ${adres.idAdresu}}">Usuń</a></td>
+					<td><a sec:authorize="hasRole('ADMIN')"
+						th:href="@{'/adresy/edit/' + ${adres.idAdresu}}">Edytuj</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a sec:authorize="hasRole('ADMIN')"
+						th:href="@{'/adresy/delete/' + ${adres.idAdresu}}">Usuń</a></td>
 				</tr>
 			</tbody>
-
 		</table>
 	</div>
 
-
 </body>
+
 </html>

@@ -90,7 +90,7 @@ h1 {
 }
 
 input[type="submit"].btn:hover {
-  color: tomato;
+	color: tomato;
 }
 
 .login-form tr {
@@ -104,6 +104,8 @@ input[type="submit"].btn:hover {
 <body>
 	<h1 align="center">Zaloguj się</h1>
 	<div class="login-page">
+		<p class="text-danger" th:if="${param.loginError}"
+			th:text="'Błędny login lub hasło.'"></p>
 		<div class="form" align="center">
 			<form class="login-form" th:action="@{/login}" method='POST'>
 				<table>
@@ -116,7 +118,7 @@ input[type="submit"].btn:hover {
 							placeholder="hasło" /></td>
 					</tr>
 					<tr>
-						<td><input class="btn" type="submit" value="OK" /></td>
+						<td><input class="btn" type="submit" value="Zaloguj" /></td>
 					</tr>
 				</table>
 			</form>

@@ -19,6 +19,6 @@ public class LoginController {
 
 	@RequestMapping("/login?error=true")
 	public String retryLogin() {
-		return "login_failed";
+		return "login";
 	}
 }

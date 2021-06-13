@@ -1,53 +1,25 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
-<title>Tennis Club Manager Application</title>
+<link type="text/css" rel="stylesheet" href="/css/main_style.css" />
+<title>Klub tenisowy "ROCKET"</title>
 </head>
-
 <body>
-	<div align="center">
-		<!--  Page header -->
-		<h1>Clients Records</h1>
+	<nav role="navigation">
+		<div id="menuToggle">
 
-		<!-- Adding new record -->
-		<a href="/new">Dodaj nowego klienta</a>
+			<input type="checkbox" /> <span></span> <span></span> <span></span>
 
-		<!-- Table with records -->
-		<table border="1" cellpadding="10">
-
-			<!-- Table header -->
-			<thead>
-				<tr>
-					<th>ID KLIENTA</th>
-					<th>IMIE</th>
-					<th>NAZWISKO</th>
-					<th>NR TELEFONU</th>
-					<th>STATUS KLIENTA</th>
-					<th>NR SZAFKI</th>
-				</tr>
-			</thead>
-
-			<!-- Table body -->
-			<tbody>
-				<tr th:each="client : ${clients}">
-					<td th:text="${client.idKlienta}">ID KLIENTA</td>
-					<td th:text="${client.imie}">IMIE</td>
-					<td th:text="${client.nazwisko}">NAZWISKO</td>
-					<td th:text="${client.nrTelefonu}">NR TELEFONU</td>
-					<td th:text="${client.statusKlienta}">STATUS KLIENTA</td>
-					<td th:text="${client.nrSzafki}">NR SZAFKI</td>
-
-					<td><a th:href="@{'/edit/' + ${client.idKlienta}}">Edytuj</a>
-						&nbsp; &nbsp; &nbsp; &nbsp; <a
-						th:href="@{'/delete/' + ${client.idKlienta}}">Usuń</a></td>
-				</tr>
-			</tbody>
-
-		</table>
-	</div>
-
-
+			<ul id="menu">
+				<a href="/placowki/"><li>Placówki</li></a>
+				<a href="/adresy/"><li>Adresy</li></a>
+				<a href="/korty/"><li>Korty</li></a>
+				<a href="/wylogowanie"><li>Wyloguj się</li></a>
+			</ul>
+		</div>
+	</nav>
 </body>
+
 </html>

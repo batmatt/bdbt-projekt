@@ -12,54 +12,54 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 @Controller
-public class AppController {
+@RequestMapping("adresy")
+public class AdresyController {
 
 	@Autowired
-	private ClientsDAO dao;
+	private AdresyDAO dao;
 
 	@RequestMapping("/")
 	public String viewHomePage(Model model) {
-		List<Client> clients = dao.list();
-		model.addAttribute("clients", clients);
+		List<Adres> adresy = dao.list();
+		model.addAttribute("adresy", adresy);
 
-		return "index";
-
+		return "index_address";
 	}
 
 	@RequestMapping("/new")
 	public String showNewForm(Model model) {
-		Client client = new Client();
-		model.addAttribute("client", client);
+		Adres adres = new Adres();
+		model.addAttribute("adres", adres);
 
-		return "new_form";
+		return "new_address";
 	}
 
 	@RequestMapping(value = "/save", method = RequestMethod.POST)
-	public String save(@ModelAttribute("client") Client client) {
-		dao.save(client);
+	public String save(@ModelAttribute("adres") Adres adres) {
+		dao.save(adres);
 
 		return "redirect:/";
 	}
 
-	@RequestMapping("/edit/{idKlienta}")
-	public ModelAndView showEditForm(@PathVariable(name = "idKlienta") int idKlienta) {
-		ModelAndView mav = new ModelAndView("edit_form");
-		Client client = dao.get(idKlienta);
-		mav.addObject("client", client);
+	@RequestMapping("/edit/{idAdresu}")
+	public ModelAndView showEditForm(@PathVariable(name = "idAdresu") int idAdresu) {
+		ModelAndView mav = new ModelAndView("edit_address");
+		Adres adres = dao.get(idAdresu);
+		mav.addObject("adres", adres);
 
 		return mav;
 	}
 
 	@RequestMapping(value = "/update", method = RequestMethod.POST)
-	public String update(@ModelAttribute("klient") Client client) {
-		dao.update(client);
+	public String update(@ModelAttribute("adres") Adres adres) {
+		dao.update(adres);
 
 		return "redirect:/";
 	}
 
-	@RequestMapping("/delete/{idKlienta}")
-	public String delete(@PathVariable(name = "idKlienta") int idKlienta) {
-		dao.delete(idKlienta);
+	@RequestMapping("/delete/{idAdresu}")
+	public String delete(@PathVariable(name = "idAdresu") int idAdresu) {
+		dao.delete(idAdresu);
 
 		return "redirect:/";
 	}

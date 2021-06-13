@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Tennis Club Manager Application</title>
+</head>
+
+<body>
+	<div align="center">
+		<!--  Page header -->
+		<h1>Adresy</h1>
+
+		<!-- Adding new record -->
+		<a href="/new">Dodaj nowy adres</a>
+
+		<!-- Table with records -->
+		<table border="1" cellpadding="10">
+
+			<!-- Table header -->
+			<thead>
+				<tr>
+					<th>ID ADRESU</th>
+					<th>ULICA</th>
+					<th>NR DZIAŁKI</th>
+					<th>MIEJSCOWOŚĆ</th>
+					<th>KOD POCZTOWY</th>
+					<th>NR LOKALU</th>
+				</tr>
+			</thead>
+
+			<!-- Table body -->
+			<tbody>
+				<tr th:each="adres : ${adresy}">
+					<td th:text="${adres.idAdresu}">ID ADRESU</td>
+					<td th:text="${adres.ulica}">ULICA</td>
+					<td th:text="${adres.nrDzialki}">NR DZIAŁKI</td>
+					<td th:text="${adres.miejscowosc}">MIEJSCOWOŚĆ</td>
+					<td th:text="${adres.kodPocztowy}">KOD POCZTOWY</td>
+					<td th:text="${adres.nrLokalu}">NR LOKALU</td>
+
+					<td><a th:href="@{'/edit/' + ${adres.idAdresu}}">Edytuj</a>
+						&nbsp; &nbsp; &nbsp; &nbsp; <a
+						th:href="@{'/delete/' + ${adres.idAdresu}}">Usuń</a></td>
+				</tr>
+			</tbody>
+
+		</table>
+	</div>
+
+
+</body>
+</html>

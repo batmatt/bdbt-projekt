@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edytuj dane Adresu</title>
+</head>
+
+<body>
+	<div align="center">
+		<!--  Page header -->
+		<h1>Edytuj dane Adresu</h1>
+
+		<!-- End line/new line -->
+		<br />
+
+		<form action="#" th:action="@{/adresy/update}" th:object="${adres}"
+			method="post">
+
+			<!-- Table with records -->
+			<table border="1" cellpadding="10">
+				<tr>
+					<td>Id adresu:</td>
+					<td><input type="text" th:field="*{idAdresu}"
+						readonly="readonly"></td>
+				</tr>
+
+				<tr>
+					<td>Ulica:</td>
+					<td><input type="text" th:field="*{ulica}"></td>
+				</tr>
+
+				<tr>
+					<td>Nr działki:</td>
+					<td><input type="text" th:field="*{nrDzialki}"></td>
+				</tr>
+
+				<tr>
+					<td>Miejscowość:</td>
+					<td><input type="text" th:field="*{miejscowosc}"></td>
+				</tr>
+
+				<tr>
+					<td>Kod pocztowy:</td>
+					<td><input type="text" th:field="*{kodPocztowy}"></td>
+				</tr>
+
+				<tr>
+					<td>Nr lokalu:</td>
+					<td><input type="text" th:field="*{nrLokalu}"></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Zapisz</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

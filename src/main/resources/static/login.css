@@ -1,0 +1,82 @@
+html{
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+body {
+    background: url("tennis_photo_4.jpg") no-repeat center;
+    background-color: #d1754e;
+}
+
+h1 {
+    margin-top: 7%;
+    margin-bottom: 2%;
+	font-weight: 400;
+    color: #d3d3d3;
+}
+
+p {
+	font-weight: 100;
+    color: #d3d3d3;
+    text-align: center;
+}
+
+.content-table {
+	border-collapse: collapse;
+	margin: 25px 0;
+	font-size: 0.9em;
+	font-weight: 300;
+	min-width: 400px;
+	border-radius: 5px 5px 0 0;
+	overflow: hidden;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+}
+
+.content-table thead tr {
+	background-color: #009879;
+	color: #ffffff;
+	text-align: left;
+	font-weight: bold;
+}
+
+
+.login-page {
+	width: 360px;
+	padding: 0 0;
+	margin: auto;
+}
+
+.form {
+	position: relative;
+	z-index: 1;
+	background: #d3d3d377;
+	max-width: 360px;
+	margin: 0 auto 100px;
+	padding: 45px;
+	text-align: center;
+	box-shadow: 0 20px 20px 0 rgba(0, 0, 0, 0.2), 0 10px 10px 0
+		rgba(0, 0, 0, 0.24);
+}
+
+.form input {
+	outline: 0;
+	background: #e9e9e9f3;
+	width: 100%;
+	border: 0;
+	margin: 0 0 15px;
+	padding: 15px;
+	box-sizing: border-box;
+	font-size: 14px;
+}
+
+input[type="submit"].btn:hover {
+	background-color: #9e321188;
+}
+
+.login-form tr {
+	align-items: center;
+    padding: 0;
+}
+
+.login-form table{
+    margin: 0;
+}

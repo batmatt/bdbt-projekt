@@ -1,0 +1,99 @@
+html{
+    height: 100%;
+}
+
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #dddddd;
+    background: url("tennis_photo_1.jpeg") no-repeat center fixed; 
+    background-size: cover;
+    
+    font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+
+    align-items: center;
+    align-content: center;
+    height: 100%;
+}
+
+div.table {
+    padding: 2em 5em;
+    height:inherit;
+    background-color: #33333377;
+    align-items: center;
+    align-content: center;
+}
+
+table.content-table{
+    padding: 1em;
+    text-decoration: none;
+    font-size: large;
+    border-collapse: collapse;
+    text-align: center;
+}
+
+table.content-table thead th{
+    background-color: #d3d3d3aa;
+    margin: 1em;
+    padding: 1em;
+}
+
+table.content-table tr td{
+    padding: 0.3em;
+}
+
+table.content-table tbody tr td{
+    background-color: #bbbbbbaa;
+}
+
+table.content-table tr:nth-child(even) td{
+    background-color: #cececeaa;
+}
+
+
+table.content-table tbody tr:hover td{
+    color: #d3d3d3;
+    background-color: #00000088;
+}
+
+table.content-table tr td.last{
+    background-color: #11111100;
+}
+
+div h1 {
+    color: #d3d3d3;
+    font-size: 2em;
+}
+div a, div a:visited, div a:hover, div a:active {
+    color: #d3d3d3;
+    text-decoration: none;
+}
+
+ul {
+    background-color: #00000066;
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+    overflow: hidden;
+    font-size: larger;
+}
+
+li {
+    float: left;
+}
+
+li a{
+	display: block;
+    color: #d3d3d3;
+    text-align: center;
+    padding: 4ex 6ex;
+    text-decoration: none;
+}
+
+li a:hover {
+    background-color: #00000088;
+}
+
+li.hover {
+	background-color: #bbbbbb;
+}

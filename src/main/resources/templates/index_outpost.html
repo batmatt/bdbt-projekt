@@ -3,19 +3,30 @@
 	xmlns:th="http://thymeleaf.org">
 <head>
 <meta charset="UTF-8">
+<link href="/styles.css" type="text/css" rel="stylesheet" />
 <title>Placowki</title>
 </head>
 
 <body>
-	<div align="center">
+	<nav role="navigation">
+		<div id="menuToggle">
+			<ul id="menu">
+				<li><a href="/">Strona główna</a></li>
+				<li><a href="/klienci/">Klienci</a></li>
+				<li><a href="/korty/">Korty</a></li>
+				<li><a href="/wylogowanie">Wyloguj się</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="table"  align="center">
 		<!--  Page header -->
 		<h1>Placówki</h1>
 
 		<!-- Adding new record -->
-		<a href="/new">Dodaj nową placówkę</a>
+		<a href="/new">Dodaj nową placówkę</a> <br /> <br />
 
 		<!-- Table with records -->
-		<table border="1" cellpadding="10">
+		<table class="content-table">
 
 			<!-- Table header -->
 			<thead>

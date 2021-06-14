@@ -16,7 +16,6 @@ public class PlacowkiDAO {
 	@Autowired
 	private JdbcTemplate jdbcTemplate;
 
-	
 	public PlacowkiDAO(JdbcTemplate jdbcTemplate) {
 		this.jdbcTemplate = jdbcTemplate;
 	}
@@ -30,8 +29,10 @@ public class PlacowkiDAO {
 
 	public void save(Placowka placowka) {
 		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate);
-		insert.withTableName("placowki").usingColumns("idPlacowki", "nazwaPlacowki", "nrTelefonu", "idAdresu", "idKlubu");
-		
+		insert.withTableName("placowki").usingColumns("nazwaPlacowki", "nrTelefonu", "idAdresu", "idKlubu");
+
+		placowka.setIdKlubu(1);
+
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(placowka);
 		insert.execute(param);
 	}
@@ -45,7 +46,7 @@ public class PlacowkiDAO {
 	}
 
 	public void update(Placowka placowka) {
-		String sql = "UPDATE placowki SET nazwaPlacowki=:nazwaPlacowki, nrTelefonu=:nrTelefonu, idAdresu=:idAdresu, idKlubu=:idKlubu WHERE idPlacowki=:idPlacowki";
+		String sql = "UPDATE placowki SET nazwaPlacowki=:nazwaPlacowki, nrTelefonu=:nrTelefonu, idAdresu=:idAdresu, idKlubu:=idKlubu WHERE idPlacowki=:idPlacowki";
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(placowka);
 		NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 

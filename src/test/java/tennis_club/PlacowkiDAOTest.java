@@ -33,7 +33,7 @@ class PlacowkiDAOTest {
 
 	@Test
 	void testSave() {
-		Placowka placowka = new Placowka(5, "Promyk", "213742002", 5, 1);
+		Placowka placowka = new Placowka(6, "Promyk", "213742002", 18, 1);
 		dao.save(placowka);
 	}
 

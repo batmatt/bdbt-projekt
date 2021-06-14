@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
 <head>
-	<meta charset="UTF-8">
-	<title>Tennis Club Manager Application</title>
-	<link href="/styles.css" rel="stylesheet" />
+<meta charset="UTF-8">
+<title>Klienci</title>
+<link href="/styles.css" rel="stylesheet" />
 </head>
 
 <body>
@@ -13,17 +14,19 @@
 			<ul id="menu">
 				<li><a href="/">Strona główna</a></li>
 				<li><a href="/placowki/">Placówki</a></li>
+				<li><a href="/adresy/">Adresy</a></li>
 				<li><a href="/korty/">Korty</a></li>
 				<li><a href="/wylogowanie">Wyloguj się</a></li>
 			</ul>
 		</div>
 	</nav>
-	<div class="table"  align="center">
+	<div class="table" align="center">
 		<!--  Page header -->
 		<h1>Klienci</h1>
 
-		<!-- Adding new record -->
-		<a href="/new">Dodaj nowego klienta</a> <br /> <br />
+		<!-- Entry to the new page -->
+		<a sec:authorize="hasRole('ADMIN')" href="/klienci/new">Dodaj
+			nowego klienta</a> <br /> <br />
 
 		<!-- Table with records -->
 		<table class="content-table">
@@ -31,28 +34,29 @@
 			<!-- Table header -->
 			<thead>
 				<tr>
-					<th>ID KLIENTA</th>
-					<th>IMIE</th>
-					<th>NAZWISKO</th>
-					<th>NR TELEFONU</th>
-					<th>STATUS KLIENTA</th>
-					<th>NR SZAFKI</th>
+					<th>Id klienta</th>
+					<th>Imię</th>
+					<th>Nazwisko</th>
+					<th>Nr telefonu</th>
+					<th>Status klienta</th>
+					<th>Nr szafki</th>
 				</tr>
 			</thead>
 
 			<!-- Table body -->
 			<tbody>
 				<tr th:each="client : ${clients}">
-					<td th:text="${client.idKlienta}">ID KLIENTA</td>
-					<td th:text="${client.imie}">IMIE</td>
-					<td th:text="${client.nazwisko}">NAZWISKO</td>
-					<td th:text="${client.nrTelefonu}">NR TELEFONU</td>
-					<td th:text="${client.statusKlienta}">STATUS KLIENTA</td>
-					<td th:text="${client.nrSzafki}">NR SZAFKI</td>
+					<td th:text="${client.idKlienta}">Id klienta</td>
+					<td th:text="${client.imie}">Imię</td>
+					<td th:text="${client.nazwisko}">Nazwisko</td>
+					<td th:text="${client.nrTelefonu}">Nr telefonu</td>
+					<td th:text="${client.statusKlienta}">Status klienta</td>
+					<td th:text="${client.nrSzafki}">Nr szafki</td>
 
-					<td class="last"><a th:href="@{'/edit/' + ${client.idKlienta}}">Edytuj</a>
-						&nbsp; &nbsp; &nbsp; &nbsp; <a
-						th:href="@{'/delete/' + ${client.idKlienta}}">Usuń</a></td>
+					<td class="last"><a sec:authorize="hasRole('ADMIN')"
+						th:href="@{'/klienci/edit/' + ${client.idKlienta}}">Edytuj</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a sec:authorize="hasRole('ADMIN')"
+						th:href="@{'/klienci/delete/' + ${client.idKlienta}}">Usuń</a></td>
 				</tr>
 			</tbody>
 

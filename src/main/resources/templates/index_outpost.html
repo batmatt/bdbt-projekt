@@ -1,10 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <link href="/styles.css" type="text/css" rel="stylesheet" />
-<title>Placowki</title>
+<title>Placówki</title>
 </head>
 
 <body>
@@ -12,18 +13,21 @@
 		<div id="menuToggle">
 			<ul id="menu">
 				<li><a href="/">Strona główna</a></li>
-				<li><a href="/klienci/">Klienci</a></li>
+				<li><a href="/adresy/">Adresy</a></li>
 				<li><a href="/korty/">Korty</a></li>
+				<li><a href="/klienci/">Klienci</a></li>
 				<li><a href="/wylogowanie">Wyloguj się</a></li>
 			</ul>
 		</div>
 	</nav>
-	<div class="table"  align="center">
+	<div class="table" align="center">
 		<!--  Page header -->
 		<h1>Placówki</h1>
 
-		<!-- Adding new record -->
-		<a href="/new">Dodaj nową placówkę</a> <br /> <br />
+		<!-- Entry to the new page -->
+		<a sec:authorize="hasRole('ADMIN')" href="/placowki/new">Dodaj
+			nową placówkę</a> <br /> <br />
+
 
 		<!-- Table with records -->
 		<table class="content-table">
@@ -45,6 +49,11 @@
 					<td th:text="${placowka.nazwaPlacowki}">Nazwa placówki</td>
 					<td th:text="${placowka.nrTelefonu}">Nr telefonu</td>
 					<td th:text="${placowka.idAdresu}">Id adresu</td>
+
+					<td class="last"><a sec:authorize="hasRole('ADMIN')"
+						th:href="@{'/placowki/edit/' + ${placowka.idPlacowki}}">Edytuj</a>
+						&nbsp;&nbsp;&nbsp;&nbsp; <a sec:authorize="hasRole('ADMIN')"
+						th:href="@{'/placowki/delete/' + ${placowka.idPlacowki}}">Usuń</a></td>
 
 				</tr>
 			</tbody>

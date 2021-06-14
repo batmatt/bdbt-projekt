@@ -9,36 +9,39 @@
 <body>
 	<div align="center">
 		<!--  Page header -->
-		<h1>Dodaj Adres</h1>
+		<h1>Dodaj adres</h1>
+		
 		<!-- End line/new line -->
 		<br />
+		
 		<form action="#" th:action="@{/adresy/save}" th:object="${adres}"
 			method="post">
 
 			<table border="1" cellpadding="10">
 				<tr>
 					<td>Ulica:</td>
-					<td><input type="text" th:fields="*{ulica}"></td>
+					<td><input type="text" th:field="*{ulica}"></td>
 				</tr>
 
 				<tr>
 					<td>Nr działki:</td>
-					<td><input type="text" th:fields="*{nrDzialki}"></td>
+					<td><input type="text" th:field="*{nrDzialki}"></td>
 				</tr>
 
 				<tr>
 					<td>Miejscowość:</td>
-					<td><input type="text" th:fields="*{miejscowosc}"></td>
+					<td><input type="text" th:field="*{miejscowosc}"></td>
 				</tr>
 
 				<tr>
 					<td>Kod pocztowy:</td>
-					<td><input type="text" th:fields="*{kodPocztowy}"></td>
+					<td><input type="text" th:field="*{kodPocztowy}"></td>
 				</tr>
-				
+
 				<tr>
 					<td>Nr lokalu:</td>
-					<td><input type="text" name="nrLokalu" value=" " th:value="${adres.nrLokalu}"/></td>
+					<td><input type="text" name="nrLokalu" value=" "
+						th:value="${adres.nrLokalu}" /></td>
 				</tr>
 
 				<tr>

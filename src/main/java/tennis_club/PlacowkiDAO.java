@@ -6,6 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.jdbc.core.BeanPropertyRowMapper;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.namedparam.BeanPropertySqlParameterSource;
+import org.springframework.jdbc.core.namedparam.NamedParameterJdbcTemplate;
 import org.springframework.jdbc.core.simple.SimpleJdbcInsert;
 import org.springframework.stereotype.Repository;
 
@@ -35,15 +36,25 @@ public class PlacowkiDAO {
 		insert.execute(param);
 	}
 
-	public Placowka get(Placowka placowka) {
-		return null;
+	public Placowka get(int idPlacowki) {
+		Object[] args = { idPlacowki };
+		String sql = "SELECT * FROM placowki WHERE idPlacowki = " + args[0];
+		Placowka placowka = jdbcTemplate.queryForObject(sql, BeanPropertyRowMapper.newInstance(Placowka.class));
+
+		return placowka;
 	}
 
 	public void update(Placowka placowka) {
+		String sql = "UPDATE placowki SET nazwaPlacowki=:nazwaPlacowki, nrTelefonu=:nrTelefonu, idAdresu=:idAdresu, idKlubu=:idKlubu WHERE idPlacowki=:idPlacowki";
+		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(placowka);
+		NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
+
+		template.update(sql, param);
 
 	}
 
-	public void delete(Placowka placowka) {
-
+	public void delete(int idPlacowki) {
+		String sql = "DELETE FROM placowki WHERE idPlacowki = ?";
+		jdbcTemplate.update(sql, idPlacowki);
 	}
 }

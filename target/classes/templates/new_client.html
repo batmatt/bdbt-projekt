@@ -9,16 +9,13 @@
 <body>
 	<div align="center">
 		<!--  Page header -->
-		<h1>Klienci</h1>
-
-		<!-- Adding new record -->
-		<a htef="/new">Dodaj Klienta</a>
+		<h1>Dodaj klienta</h1>
 
 		<!-- End line/new line -->
 		<br />
 
 		<!-- Table with records -->
-		<form action="#" th:action="@{/save}" th:object="${client}"
+		<form action="#" th:action="@{/klienci/save}" th:object="${client}"
 			method="post">
 
 			<table border="1" cellpadding="10">

@@ -9,10 +9,12 @@
 <body>
 	<div align="center">
 		<!--  Page header -->
-		<h1>Dodaj Placówkę</h1>
+		<h1>Dodaj placówkę</h1>
+		
 		<!-- End line/new line -->
 		<br />
-		<form action="#" th:action="@{/save}" th:object="${placowka}"
+		
+		<form action="#" th:action="@{/placowki/save}" th:object="${placowka}"
 			method="post">
 
 			<table border="1" cellpadding="10">
@@ -24,6 +26,11 @@
 				<tr>
 					<td>Numer telefonu:</td>
 					<td><input type="text" th:fields="*{nrTelefonu}"></td>
+				</tr>
+
+				<tr>
+					<td>Id adresu:</td>
+					<td><input type="text" th:fields="*{idAdresu}"></td>
 				</tr>
 
 				<tr>

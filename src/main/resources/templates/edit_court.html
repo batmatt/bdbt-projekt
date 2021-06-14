@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Korty</title>
+</head>
+
+<body>
+	<div align="center">
+		<!--  Page header -->
+		<h1>Edytuj dane kortu</h1>
+
+		<!-- End line/new line -->
+		<br />
+
+		<form action="#" th:action="@{/korty/update}" th:object="${kort}"
+			method="post">
+
+			<!-- Table with records -->
+			<table border="1" cellpadding="10">
+				<tr>
+					<td>Id kortu:</td>
+					<td><input type="text" th:field="*{idKortu}"
+						readonly="readonly"></td>
+				</tr>
+
+				<tr>
+					<td>Nawierzchnia:</td>
+					<td><select th:field="*{nawierzchnia}">
+							<option th:value="twarda" th:text="twarda"></option>
+							<option th:value="cegla" th:text="cegla"></option>
+							<option th:value="beton" th:text="beton"></option>
+							<option th:value="trawa" th:text="trawa"></option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td>Status kortu:</td>
+					<td><select th:field="*{statusKortu}">
+							<option th:value="dostepny" th:text="dostepny"></option>
+							<option th:value="zarezerwowany" th:text="zarezerwowany"></option>
+							<option th:value="zamkniety" th:text="zamkniety"></option>
+					</select></td>
+				</tr>
+
+				<tr>
+					<td>Id placówki:</td>
+					<td><input type="text" th:field="*{idPlacowki}"></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Zapisz</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

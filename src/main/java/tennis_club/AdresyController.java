@@ -38,7 +38,7 @@ public class AdresyController {
 	public String save(@ModelAttribute("adres") Adres adres) {
 		dao.save(adres);
 
-		return "redirect:/";
+		return "redirect:/adresy/";
 	}
 
 	@RequestMapping("/edit/{idAdresu}")
@@ -54,13 +54,13 @@ public class AdresyController {
 	public String update(@ModelAttribute("adres") Adres adres) {
 		dao.update(adres);
 
-		return "redirect:/";
+		return "redirect:/adresy/";
 	}
 
 	@RequestMapping("/delete/{idAdresu}")
 	public String delete(@PathVariable(name = "idAdresu") int idAdresu) {
 		dao.delete(idAdresu);
 
-		return "redirect:/";
+		return "redirect:/adresy/";
 	}
 }

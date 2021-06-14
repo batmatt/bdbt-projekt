@@ -14,7 +14,7 @@
 		<!-- End line/new line -->
 		<br />
 
-		<form action="#" th:action="@{/update}" th:object="${client}"
+		<form action="#" th:action="@{/klienci/update}" th:object="${client}"
 			method="post">
 
 			<!-- Table with records -->
@@ -53,7 +53,7 @@
 
 					</select></td>
 				</tr>
-				
+
 				<tr>
 					<td>Id klubu:</td>
 					<td><input type="text" th:field="*{idKlubu}"></td>

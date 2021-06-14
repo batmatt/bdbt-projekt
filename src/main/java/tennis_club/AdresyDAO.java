@@ -29,8 +29,7 @@ public class AdresyDAO {
 
 	public void save(Adres adres) {
 		SimpleJdbcInsert insert = new SimpleJdbcInsert(jdbcTemplate);
-		insert.withTableName("adresy").usingColumns("idAdresu", "ulica", "nrDzialki", "nrLokalu", "kodPocztowy",
-				"miejscowosc");
+		insert.withTableName("adresy").usingColumns("ulica", "nrDzialki", "miejscowosc", "kodPocztowy", "nrLokalu");
 
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adres);
 		insert.execute(param);
@@ -45,7 +44,7 @@ public class AdresyDAO {
 	}
 
 	public void update(Adres adres) {
-		String sql = "UPDATE adresy SET ulica=:ulica, nrDzialki=:nrDzialki, nrLokalu=:nrLokalu, kodPocztowy=:kodPocztowy, miejscowosc=:miejscowosc WHERE idAdresu=:idAdresu";
+		String sql = "UPDATE adresy SET ulica=:ulica, nrDzialki=:nrDzialki, miejscowosc=:miejscowosc, kodPocztowy=:kodPocztowy, nrLokalu=:nrLokalu WHERE idAdresu=:idAdresu";
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(adres);
 		NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 

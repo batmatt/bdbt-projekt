@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:th="http://thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Edytuj dane Placówki</title>
+</head>
+
+<body>
+	<div align="center">
+		<!--  Page header -->
+		<h1>Edytuj dane Placówki</h1>
+
+		<!-- End line/new line -->
+		<br />
+
+		<form action="#" th:action="@{/placowki/update}"
+			th:object="${placowka}" method="post">
+
+			<!-- Table with records -->
+			<table border="1" cellpadding="10">
+				<tr>
+					<td>Id placówki:</td>
+					<td><input type="text" th:field="*{idPlacowki}"
+						readonly="readonly"></td>
+				</tr>
+
+				<tr>
+					<td>Nazwa placowki:</td>
+					<td><input type="text" th:field="*{nazwaPlacowki}"></td>
+				</tr>
+
+				<tr>
+					<td>Nr telefonu:</td>
+					<td><input type="text" th:field="*{nrTelefonu}"></td>
+				</tr>
+
+				<tr>
+					<td>Id adresu:</td>
+					<td><input type="text" th:field="*{idAdresu}"></td>
+				</tr>
+
+				<tr>
+					<td>Id klubu:</td>
+					<td><input type="text" th:field="*{idKlubu}"></td>
+				</tr>
+
+				<tr>
+					<td colspan="2"><button type="submit">Zapisz</button></td>
+				</tr>
+			</table>
+		</form>
+	</div>
+</body>
+</html>

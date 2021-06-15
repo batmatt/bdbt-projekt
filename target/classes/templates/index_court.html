@@ -47,9 +47,8 @@
 
 					<td class="last"><a
 						th:href="@{'/korty/edit/' +
-						${kort.idKortu}}">Edytuj</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a sec:authorize="hasRole('ADMIN')"
-						th:href="@{'/korty/delete/' + ${kort.idKortu}}">Usuń</a></td>
+						${kort.idKortu}}">Edytuj</a><a sec:authorize="hasRole('ADMIN')"
+th:href="@{'/korty/delete/' + ${kort.idKortu}}">Usuń</a></td>
 				</tr>
 			</tbody>
 		</table>

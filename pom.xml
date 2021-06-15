@@ -57,7 +57,7 @@
 			<artifactId>ojdbc10</artifactId>
 			<version>1.0</version>
 			<scope>system</scope>
-			<systemPath>C:/Users/szinus/java-drivers/ojdbc10.jar</systemPath>
+			<systemPath>E:\Users\wodyg\git\bdbt-projekt\java-drivers\ojdbc10.jar</systemPath>
 		</dependency>
 
 		<!-- Lombok to easily use getters/setters -->

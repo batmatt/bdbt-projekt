@@ -55,7 +55,7 @@
 
 					<td class="last"><a sec:authorize="hasRole('ADMIN')"
 						th:href="@{'/klienci/edit/' + ${client.idKlienta}}">Edytuj</a>
-						&nbsp;&nbsp;&nbsp;&nbsp; <a sec:authorize="hasRole('ADMIN')"
+						<a sec:authorize="hasRole('ADMIN')"
 						th:href="@{'/klienci/delete/' + ${client.idKlienta}}">Usuń</a></td>
 				</tr>
 			</tbody>

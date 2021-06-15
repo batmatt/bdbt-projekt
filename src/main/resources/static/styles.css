@@ -65,6 +65,8 @@ div h1 {
     font-size: 2em;
 }
 div a, div a:visited, div a:hover, div a:active {
+	margin-right: 10px;
+	margin-left: 10px;
     color: #d3d3d3;
     text-decoration: none;
 }
@@ -83,6 +85,8 @@ li {
 }
 
 li a{
+	margin-right: 10px;
+	margin-left: 10px;
 	display: block;
     color: #d3d3d3;
     text-align: center;

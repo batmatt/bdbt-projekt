@@ -10,11 +10,18 @@
 <body>
 	<nav role="navigation">
 		<div id="menuToggle">
-			<ul id="menu">
+			<ul sec:authorize="hasRole('ADMIN')" id="menu">
 				<li><a href="/">Strona główna</a></li>
 				<li><a href="/placowki/">Placówki</a></li>
 				<li><a href="/adresy/">Adresy</a></li>
 				<li><a href="/klienci/">Klienci</a></li>
+				<li><a href="/wylogowanie">Wyloguj się</a></li>
+			</ul>
+
+			<ul sec:authorize="hasRole('KLIENT')" id="menu">
+				<li><a href="/">Strona główna</a></li>
+				<li><a href="/placowki/">Placówki</a></li>
+				<li><a href="/adresy/">Adresy</a></li>
 				<li><a href="/wylogowanie">Wyloguj się</a></li>
 			</ul>
 		</div>
@@ -45,13 +52,13 @@
 					<td th:text="${kort.statusKortu}">Status kortu</td>
 					<td th:text="${kort.idPlacowki}">Id placówki</td>
 
-					<td class="last"><a sec:authorize="hasRole('ADMIN')" 
+					<td class="last"><a sec:authorize="hasRole('ADMIN')"
 						th:href="@{'/korty/edit/' +
-						${kort.idKortu}}">Edytuj</a><a sec:authorize="hasRole('ADMIN')"
-th:href="@{'/korty/delete/' + ${kort.idKortu}}">Usuń</a><a sec:authorize="hasRole('KLIENT')"
-th:href="@{'/korty/reserve/' + ${kort.idKortu}}">Zarezerwuj</a>
-
-					</td>
+						${kort.idKortu}}">Edytuj</a><a
+						sec:authorize="hasRole('ADMIN')"
+						th:href="@{'/korty/delete/' + ${kort.idKortu}}">Usuń</a><a
+						sec:authorize="hasRole('KLIENT')"
+						th:href="@{'/korty/reserve/' + ${kort.idKortu}}">Zarezerwuj</a></td>
 				</tr>
 			</tbody>
 		</table>

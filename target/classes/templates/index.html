@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://www.thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <link type="text/css" rel="stylesheet" href="/menu.css" />
@@ -9,11 +10,18 @@
 <body>
 	<nav role="navigation">
 		<div id="menuToggle">
-			<ul id="menu">
+			<ul sec:authorize="hasRole('ADMIN')" id="menu">
 				<li><a href="/placowki/">Placówki</a></li>
 				<li><a href="/adresy/">Adresy</a></li>
 				<li><a href="/korty/">Korty</a></li>
 				<li><a href="/klienci/">Klienci</a></li>
+				<li><a href="/wylogowanie">Wyloguj się</a></li>
+			</ul>
+			
+			<ul sec:authorize="hasRole('KLIENT')" id="menu">
+				<li><a href="/placowki/">Placówki</a></li>
+				<li><a href="/adresy/">Adresy</a></li>
+				<li><a href="/korty/">Korty</a></li>
 				<li><a href="/wylogowanie">Wyloguj się</a></li>
 			</ul>
 		</div>

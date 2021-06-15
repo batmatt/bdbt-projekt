@@ -10,16 +10,23 @@
 <body>
 	<nav role="navigation">
 		<div id="menuToggle">
-			<ul id="menu">
+			<ul sec:authorize="hasRole('ADMIN')" id="menu">
 				<li><a href="/">Strona główna</a></li>
 				<li><a href="/placowki/">Placówki</a></li>
 				<li><a href="/korty/">Korty</a></li>
 				<li><a href="/klienci/">Klienci</a></li>
 				<li><a href="/wylogowanie">Wyloguj się</a></li>
 			</ul>
+
+			<ul sec:authorize="hasRole('KLIENT')" id="menu">
+				<li><a href="/">Strona główna</a></li>
+				<li><a href="/placowki/">Placówki</a></li>
+				<li><a href="/korty/">Korty</a></li>
+				<li><a href="/wylogowanie">Wyloguj się</a></li>
+			</ul>
 		</div>
 	</nav>
-	<div class="table"  align="center">
+	<div class="table" align="center">
 		<!--  Page header  -->
 		<h1>Adresy</h1>
 		<!-- Entry to the new page -->
@@ -49,7 +56,8 @@
 					<td th:text="${adres.nrLokalu}">Nr Lokalu</td>
 
 					<td class="last"><a sec:authorize="hasRole('ADMIN')"
-						th:href="@{'/adresy/edit/' + ${adres.idAdresu}}">Edytuj</a><a sec:authorize="hasRole('ADMIN')"
+						th:href="@{'/adresy/edit/' + ${adres.idAdresu}}">Edytuj</a><a
+						sec:authorize="hasRole('ADMIN')"
 						th:href="@{'/adresy/delete/' + ${adres.idAdresu}}">Usuń</a></td>
 				</tr>
 			</tbody>

@@ -45,10 +45,13 @@
 					<td th:text="${kort.statusKortu}">Status kortu</td>
 					<td th:text="${kort.idPlacowki}">Id placówki</td>
 
-					<td class="last"><a
+					<td class="last"><a sec:authorize="hasRole('ADMIN')" 
 						th:href="@{'/korty/edit/' +
 						${kort.idKortu}}">Edytuj</a><a sec:authorize="hasRole('ADMIN')"
-th:href="@{'/korty/delete/' + ${kort.idKortu}}">Usuń</a></td>
+th:href="@{'/korty/delete/' + ${kort.idKortu}}">Usuń</a><a sec:authorize="hasRole('KLIENT')"
+th:href="@{'/korty/reserve/' + ${kort.idKortu}}">Zarezerwuj</a>
+
+					</td>
 				</tr>
 			</tbody>
 		</table>

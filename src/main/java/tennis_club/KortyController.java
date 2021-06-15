@@ -56,6 +56,13 @@ public class KortyController {
 
 		return "redirect:/korty/";
 	}
+	
+	@RequestMapping("/reserve/{idKortu}")
+	public String reserve(@PathVariable(name = "idKortu") int idKortu) {
+		dao.reserve(idKortu);
+
+		return "redirect:/korty/";
+	}
 
 	@RequestMapping("/delete/{idKortu}")
 	public String delete(@PathVariable(name = "idKortu") int idKortu) {

@@ -51,7 +51,12 @@ public class KortyDAO {
 		template.update(sql, param);
 
 	}
-
+	
+	public void reserve(int idKortu) {
+		String sql = "UPDATE korty SET statusKortu = 'zarezerwowany' WHERE idKortu = ?";
+		jdbcTemplate.update(sql, idKortu);
+	}
+	
 	public void delete(int idKortu) {
 		String sql = "DELETE FROM korty WHERE idKortu = ?";
 		jdbcTemplate.update(sql, idKortu);

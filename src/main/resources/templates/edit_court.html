@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
-	xmlns:th="http://thymeleaf.org">
+	xmlns:th="http://www.thymeleaf.org"
+	xmlns:sec="http://www.thymeleaf.org">
 <head>
 <meta charset="UTF-8">
 <title>Korty</title>
@@ -9,7 +10,8 @@
 <body>
 	<div align="center">
 		<!--  Page header -->
-		<h1>Edytuj dane kortu</h1>
+		<h1 sec:authorize="hasRole('ADMIN')">Edytuj dane kortu</h1>
+		<h1 sec:authorize="hasRole('KLIENT')">Zmień status rezerwacji kortu</h1>
 
 		<!-- End line/new line -->
 		<br />
@@ -25,7 +27,8 @@
 						readonly="readonly"></td>
 				</tr>
 
-				<tr>
+
+				<tr sec:authorize="hasRole('ADMIN')">
 					<td>Nawierzchnia:</td>
 					<td><select th:field="*{nawierzchnia}">
 							<option th:value="twarda" th:text="twarda"></option>
@@ -34,8 +37,14 @@
 							<option th:value="trawa" th:text="trawa"></option>
 					</select></td>
 				</tr>
+				
+				<tr sec:authorize="hasRole('KLIENT')">
+					<td>Nawierzchnia:</td>
+					<td><input type="text" th:field="*{nawierzchnia}"
+						readonly="readonly"></td>
+				</tr>
 
-				<tr>
+				<tr sec:authorize="hasRole('ADMIN')">
 					<td>Status kortu:</td>
 					<td><select th:field="*{statusKortu}">
 							<option th:value="dostepny" th:text="dostepny"></option>
@@ -44,9 +53,23 @@
 					</select></td>
 				</tr>
 
-				<tr>
+				<tr sec:authorize="hasRole('KLIENT')">
+					<td>Status kortu:</td>
+					<td><select th:field="*{statusKortu}">
+							<option th:value="dostepny" th:text="dostepny"></option>
+							<option th:value="zarezerwowany" th:text="zarezerwowany"></option>
+					</select></td>
+				</tr>
+				
+				<tr sec:authorize="hasRole('ADMIN')">
 					<td>Id placówki:</td>
 					<td><input type="text" th:field="*{idPlacowki}"></td>
+				</tr>
+				
+				<tr sec:authorize="hasRole('KLIENT')">
+					<td>Id placówki:</td>
+					<td><input type="text" th:field="*{idPlacowki}"
+						readonly="readonly"></td>
 				</tr>
 
 				<tr>

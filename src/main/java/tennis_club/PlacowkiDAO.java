@@ -32,7 +32,6 @@ public class PlacowkiDAO {
 		insert.withTableName("placowki").usingColumns("nazwaPlacowki", "nrTelefonu", "idAdresu", "idKlubu");
 
 		placowka.setIdKlubu(1);
-
 		BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(placowka);
 		insert.execute(param);
 	}

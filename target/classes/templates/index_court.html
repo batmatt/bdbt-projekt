@@ -45,8 +45,9 @@
 					<td th:text="${kort.statusKortu}">Status kortu</td>
 					<td th:text="${kort.idPlacowki}">Id placówki</td>
 
-					<td class="last"><a sec:authorize="hasRole('ADMIN')"
-						th:href="@{'/korty/edit/' + ${kort.idKortu}}">Edytuj</a>
+					<td class="last"><a
+						th:href="@{'/korty/edit/' +
+						${kort.idKortu}}">Edytuj</a>
 						&nbsp;&nbsp;&nbsp;&nbsp; <a sec:authorize="hasRole('ADMIN')"
 						th:href="@{'/korty/delete/' + ${kort.idKortu}}">Usuń</a></td>
 				</tr>
